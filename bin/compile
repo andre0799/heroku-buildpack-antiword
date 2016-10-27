@@ -5,21 +5,24 @@ INSTALL_DIR=$BUILD_DIR/vendor/antiword/
 
 ANTIWORD_DIR=${HOME}/vendor/antiword/antiword-0.37
 
-echo "Untarring antiword-0.37.tar.gz into ${INSTALL_DIR}"
-
+echo "mkdir -p $INSTALL_DIR"
 mkdir -p $INSTALL_DIR
+echo "Untarring antiword-0.37.tar.gz into ${INSTALL_DIR}"
 tar -zxvf antiword-0.37.tar.gz -C $INSTALL_DIR
+echo "cd ${INSTALL_DIR}antiword-0.37"
 cd ${INSTALL_DIR}antiword-0.37
+echo "make"
 make
-
+echo "mkdir ${HOME}/.antiword"
 mkdir ${HOME}/.antiword
+echo "cp -r ${INSTALL_DIR}antiword-0.37/Resources/* ${HOME}/.antiword"
 cp -r ${INSTALL_DIR}antiword-0.37/Resources/* ${HOME}/.antiword
 
 
 echo "Complete!"
 echo "Building runtime environment for antiword int ${BUILD_DIR}"
 
-mkdir -p $BUILD_DIR/.profile.d
 echo "makin ${BUILD_DIR}/.profile.d"
+mkdir -p $BUILD_DIR/.profile.d
 
 echo "export PATH=\"${ANTIWORD_DIR}:\$PATH\"" > $BUILD_DIR/.profile.d/antiword.sh
