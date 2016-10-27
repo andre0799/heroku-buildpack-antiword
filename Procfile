@@ -1,1 +1,1 @@
-work: bin/run
+work: bin/run 
