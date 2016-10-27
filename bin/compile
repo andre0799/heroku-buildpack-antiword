@@ -3,7 +3,7 @@ BUILD_DIR=$1
 
 INSTALL_DIR=$BUILD_DIR/vendor/antiword/
 
-ANTIWORD_DIR=${HOME}/vendor/antiword/antiword-0.37
+ANTIWORD_DIR=$BUILD_DIR/vendor/antiword/antiword-0.37
 
 echo "mkdir -p $INSTALL_DIR"
 mkdir -p $INSTALL_DIR
@@ -13,10 +13,10 @@ echo "cd ${INSTALL_DIR}antiword-0.37"
 cd ${INSTALL_DIR}antiword-0.37
 echo "make"
 make
-echo "mkdir ${HOME}/.antiword"
-mkdir ${HOME}/.antiword
-echo "cp -r ${INSTALL_DIR}antiword-0.37/Resources/* ${HOME}/.antiword"
-cp -r ${INSTALL_DIR}antiword-0.37/Resources/* ${HOME}/.antiword
+echo "mkdir $BUILD_DIR/.antiword"
+mkdir $BUILD_DIR/.antiword
+echo "cp -r ${INSTALL_DIR}antiword-0.37/Resources/* $BUILD_DIR/.antiword"
+cp -r ${INSTALL_DIR}antiword-0.37/Resources/* $BUILD_DIR/.antiword
 
 
 echo "Complete!"
